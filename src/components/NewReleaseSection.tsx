@@ -80,7 +80,7 @@ export default function NewReleaseSection() {
       <div className="mt-10 flex justify-center">
         {hasNextPage ? (
           <SecondaryButton
-            className="w-[230px] h-[52px]"
+            className="w-57.5 h-13"
             onClick={() => fetchNextPage()}
             loading={isFetchingNextPage}
           >

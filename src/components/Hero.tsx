@@ -12,7 +12,7 @@ type Props = {
 export default function Hero({ onSeeDetail }: Props) {
   const navigate = useNavigate();
 
-  // ✅ ambil LIST movie dari trending
+  // ambil LIST movie dari trending
   const {
     data: movies,
     isLoading,
@@ -21,13 +21,13 @@ export default function Hero({ onSeeDetail }: Props) {
     refetch,
   } = useTrendingMovies("day");
 
-  // ✅ hero movie = movie pertama
+  // hero movie = movie pertama
   const heroMovie = movies?.[0];
 
-  // ✅ id harus number | null (bukan undefined)
+  // id harus number | null (bukan undefined)
   const heroMovieId = heroMovie?.id ?? null;
 
-  // ✅ trailer berdasarkan heroMovieId
+  // trailer berdasarkan heroMovieId
   const { data: trailer } = useMovieTrailer(heroMovieId);
 
   const [openTrailer, setOpenTrailer] = useState(false);
@@ -37,7 +37,7 @@ export default function Hero({ onSeeDetail }: Props) {
     return tmdbImage(heroMovie.backdrop_path, "original");
   }, [heroMovie?.backdrop_path]);
 
-  // ✅ Loading UI
+  // Loading UI
   if (isLoading) {
     return (
       <section className="relative max-w-360 mx-auto w-full h-130 md:h-150 flex items-center px-6 md:px-16 text-white bg-black/30 rounded-2xl">
@@ -46,13 +46,13 @@ export default function Hero({ onSeeDetail }: Props) {
     );
   }
 
-  // ✅ Error UI
+  // Error UI
   if (isError) {
     return (
       <section className="relative max-w-360 mx-auto w-full h-130 md:h-150 flex items-center px-6 md:px-16 text-white bg-black/30 rounded-2xl">
         <div>
           <p className="text-red-400 font-semibold">Gagal load hero</p>
-          <p className="text-xs text-red-300 mt-1 break-words">
+          <p className="text-xs text-red-300 mt-1 wrap-break-words">
             {(error as Error)?.message}
           </p>
 
@@ -67,7 +67,7 @@ export default function Hero({ onSeeDetail }: Props) {
     );
   }
 
-  // ✅ kalau movie kosong
+  // kalau movie kosong
   if (!heroMovie) {
     return (
       <section className="relative max-w-360 mx-auto w-full h-130 md:h-150 flex items-center px-6 md:px-16 text-white bg-black/30 rounded-2xl">
@@ -77,10 +77,10 @@ export default function Hero({ onSeeDetail }: Props) {
   }
 
   const handleSeeDetail = () => {
-    // ✅ kalau parent ngasih handler, pakai itu
+    // kalau parent ngasih handler
     if (onSeeDetail) return onSeeDetail(heroMovie.id);
 
-    // ✅ kalau tidak ada, langsung navigate
+    // kalau tidak ada, langsung navigate
     navigate(`/movie/${heroMovie.id}`);
   };
 
@@ -150,7 +150,7 @@ export default function Hero({ onSeeDetail }: Props) {
       {/* Trailer Modal */}
       {openTrailer && (
         <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="w-full max-w-[900px] rounded-2xl overflow-hidden bg-black">
+          <div className="w-full max-w-225 rounded-2xl overflow-hidden bg-black">
             <div className="flex items-center justify-between p-3 border-b border-white/10">
               <p className="text-white text-sm font-semibold">
                 {heroMovie.title} — Trailer

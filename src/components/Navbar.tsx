@@ -10,7 +10,7 @@ export default function Navbar() {
   const { data: favoritesCount } = useFavoritesCount();
   const navigate = useNavigate();
 
-  // ✅ deteksi scroll
+  // deteksi scroll
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -20,12 +20,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ✅ search state (dipakai desktop & mobile)
+  // search state (dipakai desktop & mobile)
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  // ✅ mobile search overlay
+  // mobile search overlay
   const [openMobileSearch, setOpenMobileSearch] = useState(false);
 
   // debounce
@@ -52,10 +52,10 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ✅ NAVBAR FIXED */}
+      {/* NAVBAR FIXED */}
       <nav
         className={`
-          fixed top-0 left-0 right-0 z-[999]
+          fixed top-0 left-0 right-0 z-999
           transition-all duration-300
           ${
             scrolled
@@ -91,7 +91,7 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* ✅ Desktop Search */}
+          {/* Desktop Search */}
           <div className="hidden md:block relative w-72">
             {/* icon */}
             <svg
@@ -133,7 +133,7 @@ export default function Navbar() {
 
             {/* Dropdown Desktop */}
             {openDropdown && (
-              <div className="absolute top-[62px] left-0 right-0 z-[9999] rounded-2xl overflow-hidden border border-white/10 bg-black/80 backdrop-blur-xl">
+              <div className="absolute top-15.5 left-0 right-0 z-9999 rounded-2xl overflow-hidden border border-white/10 bg-black/80 backdrop-blur-xl">
                 {searchQuery.isFetching && (
                   <div className="px-4 py-3 text-sm text-white/70">
                     Searching...
@@ -148,7 +148,7 @@ export default function Navbar() {
                     </div>
                   )}
 
-                <div className="max-h-[340px] overflow-auto">
+                <div className="max-h-85 overflow-auto">
                   {results.map((m) => (
                     <button
                       key={m.id}
@@ -182,7 +182,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* ✅ Mobile buttons */}
+          {/* Mobile buttons */}
           <div className="flex items-center md:hidden gap-6">
             {/* search icon */}
             <button
@@ -210,11 +210,11 @@ export default function Navbar() {
       </nav>
 
       {/* Spacer */}
-      <div className="h-[84px] md:h-[96px]" />
+      <div className="h-21 md:h-24" />
 
-      {/* ✅ MOBILE SEARCH OVERLAY */}
+      {/* MOBILE SEARCH OVERLAY */}
       {openMobileSearch && (
-        <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-sm">
+        <div className="fixed inset-0 z-9999 bg-black/70 backdrop-blur-sm">
           <div className="max-w-360 mx-auto px-6 pt-6">
             <div className="flex items-center gap-3">
               <div className="flex-1 relative">

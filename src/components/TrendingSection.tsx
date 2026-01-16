@@ -39,7 +39,7 @@ export default function TrendingSection() {
           <p className="text-red-400 text-sm font-semibold">
             Gagal load trending
           </p>
-          <p className="text-xs text-red-300 mt-1 break-words">
+          <p className="text-xs text-red-300 mt-1 wrap-break-words">
             {(error as Error)?.message}
           </p>
 
