@@ -11,7 +11,7 @@ export default function NewReleaseCard({ title, poster, rating }: Props) {
         <img
           src={poster}
           alt={title}
-          className="w-[173px] h-[266px] md:w-[216px] md:h-[321px] object-cover"
+          className="w-43.25 h-66.5 md:w-54 md:h-80.25 object-cover"
         />
       </div>
 

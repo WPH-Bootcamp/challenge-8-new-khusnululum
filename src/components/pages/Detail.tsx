@@ -93,7 +93,7 @@ export default function Detail() {
               <img
                 src={posterUrl}
                 alt={movie.title}
-                className="w-29 md:w-[220px] rounded-2xl overflow-hidden border border-white/10"
+                className="w-29 md:w-55 rounded-2xl overflow-hidden border border-white/10"
               />
 
               <div className="block md:hidden">
@@ -198,8 +198,8 @@ export default function Detail() {
 
       {/* ✅ Trailer Modal */}
       {openTrailer && trailer && (
-        <div className="fixed inset-0 z-[9999] bg-black/70 flex items-center justify-center p-4">
-          <div className="w-full max-w-[900px] rounded-2xl overflow-hidden bg-black border border-white/10">
+        <div className="fixed inset-0 z-9999 bg-black/70 flex items-center justify-center p-4">
+          <div className="w-full max-w-225 rounded-2xl overflow-hidden bg-black border border-white/10">
             <div className="flex items-center justify-between p-3 border-b border-white/10">
               <p className="text-white text-sm font-semibold">
                 {movie.title} — Trailer
